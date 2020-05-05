@@ -7,7 +7,7 @@ import './styles/footer.scss'
 import './styles/base.scss'
 
 export {
-    chechForName,
+    checkForName,
     handleSubmit
 }
 
