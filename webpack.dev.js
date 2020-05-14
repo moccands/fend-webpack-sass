@@ -9,11 +9,12 @@ module.exports = {
         libraryTarget: 'var',
         library: 'Client'
     },
-    /*mode: 'development',*/
-    mode: 'production',
+    mode: 'development',
+    /*mode: 'production',*/
     devtool: 'source-map',
     stats: 'verbose',
     module: {
+
         rules: [
             {
                 test: '/\.js$/',

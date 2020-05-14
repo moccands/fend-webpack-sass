@@ -13,5 +13,5 @@ export {
 
 console.log(checkForName);
 
-alert("I EXIST")
+alert("I hate webpack2")
 console.log("CHANGE!!");
