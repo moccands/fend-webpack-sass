@@ -13,5 +13,5 @@ export {
 
 console.log(checkForName);
 
-alert("I hate webpack2")
+alert("Je vois le but du tunnel")
 console.log("CHANGE!!");

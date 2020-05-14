@@ -6,6 +6,10 @@ const app = express()
 
 app.use(express.static('dist'))
 
+const bodyParser = require("body-parser");
+        app.use(bodyParser.urlencoded({ extended: false }));
+        app.use(bodyParser.json());
+
 console.log(__dirname)
 
 app.get('/', function (req, res) {
@@ -20,3 +24,9 @@ app.listen(8081, function () {
 app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
+
+app.post('/analyseText',function(request,response){
+    var query1=request.body.data;
+    console.log(query1)
+    response.send(mockAPIResponse)
+});
