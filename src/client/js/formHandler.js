@@ -15,7 +15,7 @@ function handleSubmit(event) {
         console.log(data.list[0].main.temp);
     });*/
     postData('http://localhost:8081/analyseText', {data : formText }).then(function(res) {
-          document.getElementById('results').innerHTML = res.message
+          document.getElementById('results').innerHTML = res.polarity
       })
 }
 

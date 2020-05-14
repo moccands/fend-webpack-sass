@@ -3,7 +3,11 @@ const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
 const dotenv = require('dotenv');
 dotenv.config();
-
+var aylien = require('aylien_textapi');
+var textapi = new aylien({
+    application_id: process.env.API_ID,
+    application_key: process.env.API_KEY
+    });
 
 const app = express()
 
@@ -31,8 +35,18 @@ app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
 
-app.post('/analyseText',function(request,response){
-    var query1=request.body.data;
-    console.log(query1)
-    response.send(mockAPIResponse)
-});
+app.post('/analyseText',function(request,res){
+    textapi.sentiment({
+        'text': request.body.data,
+        "mode": "document"
+    }, function(error, response) {
+      if (error === null) {
+        console.log(response);
+        res.send(response);
+      }
+      else {
+          console.log('ERROR '+error);
+          res.send({text:"invalid"});
+      }
+  });
+})
