@@ -46,7 +46,7 @@ app.post('/analyseText',function(request,res){
       }
       else {
           console.log('ERROR '+error);
-          res.send({text:"invalid"});
+          res.send({text:"Invalid request"});
       }
   });
 })

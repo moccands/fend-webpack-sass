@@ -1,15 +1,10 @@
 function checkForName(inputText) {
     console.log("::: Running checkForName :::", inputText);
-    let names = [
-        "Picard",
-        "Janeway",
-        "Kirk",
-        "Archer",
-        "Georgiou"
-    ]
-
-    if(names.includes(inputText)) {
-        alert("Welcome, Captain!")
+    const regex = /^[A-Za-z][A-Za-z0-9]*/; // can't start with a number
+    if(regex.test(inputText)){
+        return true
+    }else{
+        return false
     }
 }
 
