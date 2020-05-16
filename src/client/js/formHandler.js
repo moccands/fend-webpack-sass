@@ -36,4 +36,13 @@ const postData = async ( url = '', data = {})=>{
   }
 }
 
-export { handleSubmit }
+function getTest() {
+  fetch('http://localhost:8081/test')
+  .then(res => res.json())
+  .then(function(res) {
+    return res.message
+  })
+}
+
+
+export {  getTest, handleSubmit }
