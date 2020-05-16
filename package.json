@@ -14,6 +14,7 @@
   "description": "",
   "dependencies": {
     "aylien_textapi": "^0.7.0",
+    "babel-jest": "^26.0.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mini-css-extract-plugin": "^0.9.0",
@@ -35,6 +36,14 @@
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
     "webpack-dev-server": "^3.7.2"
-  }
+  },
+  
+    "jest": {
+      "moduleFileExtensions": ["js"],
+      "moduleDirectories": ["node_modules", "src", "dist"]
 
+    }
+  
 }
+
+
