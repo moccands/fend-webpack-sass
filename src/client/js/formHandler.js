@@ -1,20 +1,30 @@
+function updateUI(text) {
+  document.getElementById('results').innerHTML = text;
+}
+
+export { updateUI }
+
+function getValueFromForm() {
+  return document.getElementById('name').value;
+}
+
+export {getValueFromForm}
 
 function handleSubmit(event) {
     event.preventDefault()
 
     // check what text was put into the form field
-    let formText = document.getElementById('name').value
+    let formText = getValueFromForm();
     if (Client.checkForName(formText)) {
       console.log("::: Form Submitted :::")
       postData('http://localhost:8081/analyseText', {data : formText }).then(function(res) {
-            document.getElementById('results').innerHTML = res.polarity
+        updateUI(res.polarity);
       })
     }
     else {
-      document.getElementById('results').innerHTML = "Invalid Entry";
+      updateUI("Invalid Entry");
     }
 }
-
 
 const postData = async ( url = '', data = {})=>{
   const response = await fetch(url, {
@@ -36,13 +46,6 @@ const postData = async ( url = '', data = {})=>{
   }
 }
 
-function getTest() {
-  fetch('http://localhost:8081/test')
-  .then(res => res.json())
-  .then(function(res) {
-    return res.message
-  })
-}
 
 
-export {  getTest, handleSubmit }
+export { handleSubmit }
